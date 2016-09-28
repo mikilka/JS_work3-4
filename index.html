@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var body = document.body;
+		var question = ["1", "2", "3"];
+		for (var i=0; i<3; i++) {
+			var h3 = document.createElement('h3');
+			h3.innerHTML = 'Вопрос №';
+			body.appendChild(h3);
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.id = 'check1';
+			body.appendChild(checkbox);
+			// console.log(checkbox.id);
+			var label = document.createElement('label');
+			label.innerHTML = 'Вариант ответа №1';
+			label.htmlFor = 'check1';
+			body.appendChild(label);
+			// console.log(label.htmlFor);
+			// var br = document.createElement('br');
+			// body.appendChild(br);
+
+			var checkbox2 = checkbox.cloneNode(true);
+			checkbox2.id = 'check2';
+			body.appendChild(checkbox2);
+			var label2 = label.cloneNode(true);
+			label2.innerHTML = 'Вариант ответа №2';
+			label2.htmlFor = 'check2';
+			body.appendChild(label2);
+
+			var checkbox3 = checkbox.cloneNode(true);
+			checkbox3.id = 'check3';
+			body.appendChild(checkbox3);
+			var label3 = label.cloneNode(true);
+			label3.innerHTML = 'Вариант ответа №3';
+			label3.htmlFor = 'check3';
+			body.appendChild(label3);
+		}
+</script>
+</body>
+</html>
