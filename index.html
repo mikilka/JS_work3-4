@@ -7,40 +7,41 @@
 <body>
 	<script>
 		var body = document.body;
-		var question = ["1", "2", "3"];
-		for (var i=0; i<3; i++) {
-			var h3 = document.createElement('h3');
-			h3.innerHTML = 'Вопрос №';
-			body.appendChild(h3);
-			var checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.id = 'check1';
-			body.appendChild(checkbox);
-			// console.log(checkbox.id);
-			var label = document.createElement('label');
-			label.innerHTML = 'Вариант ответа №1';
-			label.htmlFor = 'check1';
-			body.appendChild(label);
-			// console.log(label.htmlFor);
-			// var br = document.createElement('br');
-			// body.appendChild(br);
 
-			var checkbox2 = checkbox.cloneNode(true);
-			checkbox2.id = 'check2';
-			body.appendChild(checkbox2);
-			var label2 = label.cloneNode(true);
-			label2.innerHTML = 'Вариант ответа №2';
-			label2.htmlFor = 'check2';
-			body.appendChild(label2);
+		var h3 = document.createElement('h3');
+		h3.innerHTML = 'Тест по программированию';
+		body.appendChild(h3);
 
-			var checkbox3 = checkbox.cloneNode(true);
-			checkbox3.id = 'check3';
-			body.appendChild(checkbox3);
-			var label3 = label.cloneNode(true);
-			label3.innerHTML = 'Вариант ответа №3';
-			label3.htmlFor = 'check3';
-			body.appendChild(label3);
+		var block = document.createElement('div');
+
+		// сначала вставляем структуру в блок (1 вопрос - 1 блок)
+
+		for(var i=0; i<3; i++) {
+		var question = document.createElement('h3');
+		var contest = (i+1) + ' . Вопрос №'+ (i+1);
+		question.innerHTML = contest;
+		block.appendChild(question);
+
+		// генерируем варианты ответов
+
+		for (var j = 0; j < 3; j++) {
+		var checkboxId = 'check' + i + j;
+		var labelInner = 'Вариант ответа №' + (j+1);
+		var checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.id = checkboxId;
+		block.appendChild(checkbox);
+		var label = document.createElement('label');
+		label.innerHTML = labelInner;
+		label.htmlFor = checkboxId;
+		block.appendChild(label);
 		}
+
+		}
+
+
+		document.body.appendChild(block); //  в документ
+
 </script>
 </body>
 </html>
