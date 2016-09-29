@@ -6,41 +6,61 @@
 </head>
 <body>
 	<script>
-		var body = document.body;
+		var test = {
+			generetePage: function() {
+				var body = document.body;
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'Тест по программированию';
+				h3.style.textAlign = 'center';
+				body.appendChild(h3);
 
-		var h3 = document.createElement('h3');
-		h3.innerHTML = 'Тест по программированию';
-		body.appendChild(h3);
+				var block = document.createElement('div');
+				block.style.marginLeft = '20vw';
 
-		var block = document.createElement('div');
+				// сначала вставляем структуру в блок (1 вопрос - 1 блок)
 
-		// сначала вставляем структуру в блок (1 вопрос - 1 блок)
+				for(var i=0; i<3; i++) {
+				var question = document.createElement('h3');
+				var contest = (i+1) + ' . Вопрос №'+ (i+1);
+				question.innerHTML = contest;
+				block.appendChild(question);
 
-		for(var i=0; i<3; i++) {
-		var question = document.createElement('h3');
-		var contest = (i+1) + ' . Вопрос №'+ (i+1);
-		question.innerHTML = contest;
-		block.appendChild(question);
+				// генерируем варианты ответов
 
-		// генерируем варианты ответов
+				for (var j = 0; j < 3; j++) {
+				var checkboxId = 'check' + i + j;
+				var labelInner = 'Вариант ответа №' + (j+1);
+				var checkbox = document.createElement('input');
+				checkbox.type = 'checkbox';
+				checkbox.id = checkboxId;
+				block.appendChild(checkbox);
+				var label = document.createElement('label');
+				label.innerHTML = labelInner;
+				label.htmlFor = checkboxId;
+				block.appendChild(label);
+				var br = document.createElement('br');
+				block.appendChild(br);
+				}
 
-		for (var j = 0; j < 3; j++) {
-		var checkboxId = 'check' + i + j;
-		var labelInner = 'Вариант ответа №' + (j+1);
-		var checkbox = document.createElement('input');
-		checkbox.type = 'checkbox';
-		checkbox.id = checkboxId;
-		block.appendChild(checkbox);
-		var label = document.createElement('label');
-		label.innerHTML = labelInner;
-		label.htmlFor = checkboxId;
-		block.appendChild(label);
+				}
+
+
+				document.body.appendChild(block); // вставляем блок в документ
+				var button = document.createElement('button');
+				button.style.display = 'block';
+				button.style.height  = '40px';
+				button.style.width = '250px';
+				button.style.fontSize = '15px';
+				button.style.margin = '50px auto 0 auto';
+				button.style.backgroundColor = 'lightblue';
+				button.style.border = '2px solid #000';
+				button.style.borderRadius = '3px';
+				button.innerHTML = 'Проверить мои резултаты';
+				body.appendChild(button);
+			}
 		}
 
-		}
-
-
-		document.body.appendChild(block); //  в документ
+		test.generetePage();
 
 </script>
 </body>
